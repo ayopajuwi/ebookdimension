@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dimension | Param Shah</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .password-container, .pdf-container {
+            display: none;
+            width: 80%;
+            height: 90vh;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid #333;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Password Prompt -->
+    <div class="password-container" id="passwordContainer">
+        <h2>Enter Password to View The Book</h2>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <p class="error" id="errorMessage">Incorrect password, please try again.</p>
+    </div>
+
+    <!-- PDF Viewer -->
+    <div class="pdf-container" id="pdfContainer">
+        <embed src="Dimension.pdf" type="application/pdf" width="100%" height="100%">
+        <!-- Alternatively, you can use iframe:
+        <iframe src="your-pdf-file.pdf" width="100%" height="100%"></iframe> -->
+    </div>
+
+    <script>
+        // JavaScript function to check the password
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+            const correctPassword = "090711"; // The correct password
+
+            if (password === correctPassword) {
+                // Hide the password prompt and show the PDF viewer
+                document.getElementById("passwordContainer").style.display = "none";
+                document.getElementById("pdfContainer").style.display = "block";
+            } else {
+                // Show error message if password is incorrect
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+<p>   Made By Param Shah©️</p>
+
+
+</body>
+</html>
